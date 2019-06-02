@@ -25,11 +25,8 @@
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered" id="user_data">
 						<tr>
-							<th>Question</th>
-							<th>option1</th>
-							<th>option2</th>
-							<th>option3</th>
-							<th>option4</th>
+							<th>First Name</th>
+							<th>Last Name</th>
 							<th>Details</th>
 							<th>Remove</th>
 						</tr>
@@ -44,31 +41,15 @@
 		</div>
 		<div id="user_dialog" title="Add Data">
 			<div class="form-group">
-				<label>Enter Question</label>
-				<input type="text" name="Question" id="Question" class="form-control" />
-				<span id="error_Question" class="text-danger"></span>
+				<label>Enter First Name</label>
+				<input type="text" name="first_name" id="first_name" class="form-control" />
+				<span id="error_first_name" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label>Enter option1</label>
-				<input type="text" name="option_1" id="option_1" class="form-control" />
-				<span id="error_option_1" class="text-danger"></span>
+				<label>Enter Last Name</label>
+				<input type="text" name="last_name" id="last_name" class="form-control" />
+				<span id="error_last_name" class="text-danger"></span>
 			</div>
-			<div class="form-group">
-				<label>Enter option2</label>
-				<input type="text" name="option_2" id="option_2" class="form-control" />
-				<span id="error_option_2" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label>Enter option3</label>
-				<input type="text" name="option_3" id="option_3" class="form-control" />
-				<span id="error_option_3" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label>Enter option4</label>
-				<input type="text" name="option_4" id="option_4" class="form-control" />
-				<span id="error_option_4" class="text-danger"></span>
-			</div>
-			
 			<div class="form-group" align="center">
 				<input type="hidden" name="row_id" id="hidden_row_id" />
 				<button type="button" name="save" id="save" class="btn btn-info">Save</button>
@@ -95,107 +76,50 @@ $(document).ready(function(){
 
 	$('#add').click(function(){
 		$('#user_dialog').dialog('option', 'title', 'Add Data');
-		$('#Question').val('');
-		$('#option_1').val('');
-		$('#option_2').val('');
-		$('#option_3').val('');
-		$('#option_4').val('');
-		$('#error_Question').text('');
-		$('#error_option_1').text('');
-		$('#error_option_2').text('');
-		$('#error_option_3').text('');
-		$('#error_option_4').text('');
-		$('#Question').css('border-color', '');
-		$('#option_1').css('border-color', '');
-		$('#option_2').css('border-color', '');
-		$('#option_3').css('border-color', '');
-		$('#option_4').css('border-color', '');
+		$('#first_name').val('');
+		$('#last_name').val('');
+		$('#error_first_name').text('');
+		$('#error_last_name').text('');
+		$('#first_name').css('border-color', '');
+		$('#last_name').css('border-color', '');
 		$('#save').text('Save');
 		$('#user_dialog').dialog('open');
 	});
 
 	$('#save').click(function(){
-		var error_Question = '';
-		var error_option_1 = '';
-		var error_option_2 = '';
-		var error_option_3 = '';
-		var error_option_4 = '';
-		var Question = '';
-		var option_1 = '';
-		var option_2 = '';
-		var option_3 = '';
-		var option_4 = '';
-		if($('#Question').val() == '')
+		var error_first_name = '';
+		var error_last_name = '';
+		var first_name = '';
+		var last_name = '';
+		if($('#first_name').val() == '')
 		{
-			error_Question = 'Question is required';
-			$('#error_Question').text(error_Question);
-			$('#Question').css('border-color', '#cc0000');
-			Question = '';
+			error_first_name = 'First Name is required';
+			$('#error_first_name').text(error_first_name);
+			$('#first_name').css('border-color', '#cc0000');
+			first_name = '';
 		}
 		else
 		{
-			error_Question = '';
-			$('#error_Question').text(error_Question);
-			$('#Question').css('border-color', '');
-			Question = $('#Question').val();
+			error_first_name = '';
+			$('#error_first_name').text(error_first_name);
+			$('#first_name').css('border-color', '');
+			first_name = $('#first_name').val();
 		}	
-		if($('#option_1').val() == '')
+		if($('#last_name').val() == '')
 		{
-			error_option_1 = 'option1 is required';
-			$('#error_option_1').text(error_option_1);
-			$('#option_1').css('border-color', '#cc0000');
-			option_1 = '';
+			error_last_name = 'Last Name is required';
+			$('#error_last_name').text(error_last_name);
+			$('#last_name').css('border-color', '#cc0000');
+			last_name = '';
 		}
 		else
 		{
-			error_option_1 = '';
-			$('#error_option_1').text(error_option_1);
-			$('#option_1').css('border-color', '');
-			option_1 = $('#option_1').val();
+			error_last_name = '';
+			$('#error_last_name').text(error_last_name);
+			$('#last_name').css('border-color', '');
+			last_name = $('#last_name').val();
 		}
-		if($('#option_2').val() == '')
-		{
-			error_option_2 = 'option2 is required';
-			$('#error_option_2').text(error_option_2);
-			$('#option_2').css('border-color', '#cc0000');
-			option_2 = '';
-		}
-		else
-		{
-			error_option_2 = '';
-			$('#error_option_2').text(error_option_2);
-			$('#option_2').css('border-color', '');
-			option_2 = $('#option_2').val();
-		}
-		if($('#option_3').val() == '')
-		{
-			error_option_3 = 'option3 is required';
-			$('#error_option_3').text(error_option_3);
-			$('#option_3').css('border-color', '#cc0000');
-			option_3 = '';
-		}
-		else
-		{
-			error_option_3 = '';
-			$('#error_option_3').text(error_option_3);
-			$('#option_3').css('border-color', '');
-			option_3 = $('#option_3').val();
-		}
-		if($('#option_4').val() == '')
-		{
-			error_option_4 = 'option4 is required';
-			$('#error_option_4').text(error_option_4);
-			$('#option_4').css('border-color', '#cc0000');
-			option_4 = '';
-		}
-		else
-		{
-			error_option_4 = '';
-			$('#error_option_4').text(error_option_4);
-			$('#option_4').css('border-color', '');
-			option_4 = $('#option_4').val();
-		}
-		if(error_Question != '' || error_option_1 != '' || error_option_2 != '' || error_option_3 != '' || error_option_4 != '')
+		if(error_first_name != '' || error_last_name != '')
 		{
 			return false;
 		}
@@ -205,11 +129,8 @@ $(document).ready(function(){
 			{
 				count = count + 1;
 				output = '<tr id="row_'+count+'">';
-				output += '<td>'+Question+' <input type="hidden" name="hidden_Question[]" id="Question'+count+'" class="Question" value="'+Question+'" /></td>';
-				output += '<td>'+option_1+' <input type="hidden" name="hidden_option_1[]" id="option_1'+count+'" value="'+option_1+'" /></td>';
-				output += '<td>'+option_2+' <input type="hidden" name="hidden_option_2[]" id="option_2'+count+'" value="'+option_2+'" /></td>';
-				output += '<td>'+option_3+' <input type="hidden" name="hidden_option_3[]" id="option_3'+count+'" value="'+option_3+'" /></td>';
-				output += '<td>'+option_4+' <input type="hidden" name="hidden_option_4[]" id="option_4'+count+'" value="'+option_4+'" /></td>';
+				output += '<td>'+first_name+' <input type="hidden" name="hidden_first_name[]" id="first_name'+count+'" class="first_name" value="'+first_name+'" /></td>';
+				output += '<td>'+last_name+' <input type="hidden" name="hidden_last_name[]" id="last_name'+count+'" value="'+last_name+'" /></td>';
 				output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+count+'">View</button></td>';
 				output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+count+'">Remove</button></td>';
 				output += '</tr>';
@@ -218,11 +139,8 @@ $(document).ready(function(){
 			else
 			{
 				var row_id = $('#hidden_row_id').val();
-				output = '<td>'+Question+' <input type="hidden" name="hidden_Question[]" id="Question'+row_id+'" class="Question" value="'+Question+'" /></td>';
-				output += '<td>'+option_1+' <input type="hidden" name="hidden_option_1[]" id="option_1'+row_id+'" value="'+option_1+'" /></td>';
-				output += '<td>'+option_2+' <input type="hidden" name="hidden_option_2[]" id="option_2'+row_id+'" value="'+option_2+'" /></td>';
-				output += '<td>'+option_3+' <input type="hidden" name="hidden_option_3[]" id="option_3'+row_id+'" value="'+option_3+'" /></td>';
-				output += '<td>'+option_4+' <input type="hidden" name="hidden_option_4[]" id="option_4'+row_id+'" value="'+option_4+'" /></td>';
+				output = '<td>'+first_name+' <input type="hidden" name="hidden_first_name[]" id="first_name'+row_id+'" class="first_name" value="'+first_name+'" /></td>';
+				output += '<td>'+last_name+' <input type="hidden" name="hidden_last_name[]" id="last_name'+row_id+'" value="'+last_name+'" /></td>';
 				output += '<td><button type="button" name="view_details" class="btn btn-warning btn-xs view_details" id="'+row_id+'">View</button></td>';
 				output += '<td><button type="button" name="remove_details" class="btn btn-danger btn-xs remove_details" id="'+row_id+'">Remove</button></td>';
 				$('#row_'+row_id+'').html(output);
@@ -234,16 +152,10 @@ $(document).ready(function(){
 
 	$(document).on('click', '.view_details', function(){
 		var row_id = $(this).attr("id");
-		var Question = $('#Question'+row_id+'').val();
-		var option_1 = $('#option_1'+row_id+'').val();
-		var option_2 = $('#option_2'+row_id+'').val();
-		var option_3 = $('#option_3'+row_id+'').val();
-		var option_4 = $('#option_4'+row_id+'').val();
-		$('#Question').val(Question);
-		$('#option_1').val(option_1);
-		$('#option_2').val(option_2);
-		$('#option_3').val(option_3);
-		$('#option_4').val(option_4);		
+		var first_name = $('#first_name'+row_id+'').val();
+		var last_name = $('#last_name'+row_id+'').val();
+		$('#first_name').val(first_name);
+		$('#last_name').val(last_name);
 		$('#save').text('Edit');
 		$('#hidden_row_id').val(row_id);
 		$('#user_dialog').dialog('option', 'title', 'Edit Data');
@@ -269,7 +181,7 @@ $(document).ready(function(){
 	$('#user_form').on('submit', function(event){
 		event.preventDefault();
 		var count_data = 0;
-		$('.Question').each(function(){
+		$('.first_name').each(function(){
 			count_data = count_data + 1;
 		});
 		if(count_data > 0)

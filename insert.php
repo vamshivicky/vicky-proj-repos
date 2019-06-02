@@ -5,17 +5,16 @@
 $connect = new PDO("mysql:host=localhost;dbname=testing", "root", "");
 
 $query = "
-INSERT INTO tb1_sample 
-(Question) 
-VALUES (':Question')
-
+INSERT INTO tbl_sample 
+(first_name, last_name) 
+VALUES (:first_name, :last_name)
 ";
 
-for($count = 0; $count<count($_POST['hidden_Question[]']); $count++)
+for($count = 0; $count<count($_POST['hidden_first_name']); $count++)
 {
 	$data = array(
-		':Question'	=>	$_POST['hidden_Question'][$count],
-		
+		':first_name'	=>	$_POST['hidden_first_name'][$count],
+		':last_name'	=>	$_POST['hidden_last_name'][$count]
 	);
 	$statement = $connect->prepare($query);
 	$statement->execute($data);
